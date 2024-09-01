@@ -2,6 +2,10 @@
 import { ref } from 'vue'
 import Alerta from './Alerta.vue'
 
+const emit = defineEmits([
+    'definir-presupuesto'
+])
+
 const presupuesto = ref(0)
 const error = ref('')
 
@@ -11,6 +15,8 @@ const definirPresupuesto = () => {
     setTimeout(() => {
       error.value = ''
     }, 2000)
+  } else {
+    emit('definir-presupuesto', presupuesto.value)
   }
 }
 </script>
@@ -23,11 +29,10 @@ const definirPresupuesto = () => {
       {{ error }}
     </Alerta>
     <div class="campo">
-      <label for="nuevo-presupuesto">Definir presupuesto</label>
+      <label for="presupuesto">Definir presupuesto</label>
       <input
-          type="text"
-          id="nuevo-presupuesto"
-          class="nuevo-presupuesto"
+          type="number"
+          id="presupuesto"
           placeholder="Añade tu presupuesto"
           min="0"
           v-model.number="presupuesto"
@@ -44,9 +49,6 @@ const definirPresupuesto = () => {
   .presupuesto {
     width: 100%;
   }
-  .nuevo-presupuesto {
-
-  }
   .campo {
     display: grid;
     gap: 2rem;
@@ -55,11 +57,12 @@ const definirPresupuesto = () => {
     padding: 1rem;
     border: none;
     text-align: center;
+    border-radius: 1rem;
+    width: 100%;
   }
   .presupuesto input[type="number"] {
-    background-color: var(--gris-claro);
-    border-radius: 1rem;
-    font-size: 2.2rem;
+    background-color: var(--gris-claro) !important;
+    font-size: 2.3rem;
   }
   .presupuesto input[type="submit"] {
     color: var(--blanco);
@@ -67,7 +70,6 @@ const definirPresupuesto = () => {
     font-size: 2rem;
     margin-top: 2rem;
     font-weight: 900;
-    width: 100%;
   }
   .presupuesto input[type="submit"]:hover {
     background-color: #1048A4;
