@@ -10,8 +10,10 @@
   },
   "dependencies": {
     "sass": "^1.77.8",
+    "uid": "^2.0.2",
     "vite-plugin-vue-devtools": "^7.3.9",
-    "vue": "^3.4.37"
+    "vue": "^3.4.37",
+    "vue3-circle-progress": "^1.0.7"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.1.2",
