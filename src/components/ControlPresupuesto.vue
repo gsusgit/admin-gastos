@@ -24,7 +24,7 @@
   })
 
   const porcentaje = computed(() => {
-    return (props.gastado / props.presupuesto) * 100
+    return parseInt((props.gastado / props.presupuesto) * 100)
   })
 </script>
 
